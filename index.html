@@ -4,6 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Coca-Cola Food Fest 2025: Música, comida y cultura en México. Disfruta de artistas invitados, experiencias gastronómicas y diversión en familia.">
+    <meta name="keywords"
+        content="Coca-Cola, Food Fest, Festival de música, Festival gastronómico, México 2025, artistas en vivo">
+    <meta name="author" content="Coca-Cola">
+
+    <link rel="stylesheet" href="./assets/css/fonts.css">
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Coca-Cola Food Fest 2025</title>
@@ -18,11 +25,11 @@
                     <img src="./assets/img/logo-header.png" alt="Logotipo Coca-Cola Food Fest 2025"
                         class="header-logo__img">
                 </div>
-                <ul>
-                    <li class="header-nav__item">Selecciona tu ciudad</li>
-                    <li class="header-nav__item">Artistas</li>
-                    <li class="header-nav__item">Ubicación</li>
-                    <li class="header-nav__item">Boletos</li>
+                <ul class="header-nav__list">
+                    <li class="header-nav__item"><a href="#ciudades"></a>Selecciona tu ciudad</li>
+                    <li class="header-nav__item"><a href="#artistas"></a>Artistas</li>
+                    <li class="header-nav__item"><a href="#ubicacion"></a>Ubicación</li>
+                    <li class="header-nav__item nav-boletos__btn"><a href="#boletos"></a>Boletos</li>
                 </ul>
             </nav>
         </div>
@@ -31,21 +38,17 @@
     <!-- Inicio hero -->
     <section class="hero">
         <div class="hero-item item-1">
-            <img src="./assets/img/tacos.png" alt="Tacos">
+            <img src="./assets/img/tacos.png" alt="Tacos" class="hero-img-1">
         </div>
         <div class="hero-item item-2">
-            <img src="./assets/img/hero-artist.png" alt="Concierto">
+            <img src="./assets/img/hero-artist.png" alt="Concierto" class="hero-img-2">
         </div>
         <div class="hero-item item-3">
-            <div class="hero-pattern">
-                <img src="./assets/img/patron-1.png" alt="Patron" class="hero-pattern__img">
-            </div>
-            <div class="contenido-derecha">
-                <img src="URL_LOGO_COCA_COLA.png" alt="Coca-Cola Logo" class="logo">
-                <h1 class="titulo">COMIDA.</h1>
-                <h1 class="titulo">MÚSICA.</h1>
-                <h1 class="titulo">MÉXICO.</h1>
-            </div>
+            <img src="./assets/img/franja2.svg" alt="Patron" class="hero-pattern__img">
+        </div>
+        <div class="hero-item item-4">
+            <img src="./assets/img/LOGO_FoodFest.svg" alt="Coca-Cola Logo" class="logo-principal">
+            <h1 class="titulo">COMIDA.<br>MÚSICA.<br>MÉXICO.</h1>
         </div>
     </section>
     <!-- Fin hero -->
@@ -57,7 +60,7 @@
         <div class="max-cont">
             <div class="ciudad-logo">
                 <!-- Agregar dinamismo al logo -->
-                <img src="" alt="logo ciudad" class="ciudad-logo__img">
+                <img src="./assets/img/" alt="logo ciudad" class="ciudad-logo__img">
             </div>
             <div class="ciudad-info">
                 <p class="ciudad-info__text">Ven a comer y disfrutar de grandes artistas en Coca-Cola Food Fest, mucho
@@ -68,9 +71,9 @@
             <article class="ciudad-select">
                 <h2 class="ciudad-select__title">SELECCIONA TU CIUDAD:</h2>
                 <nav class="ciudad-select__btn">
-                    <div class="select-btn cdmx"></div>
-                    <div class="select-btn toluca"></div>
-                    <div class="select-btn puebla"></div>
+                    <a href="#" class="select-btn cdmx">CDMX</a>
+                    <a href="#" class="select-btn toluca">TOLUCA</a>
+                    <a href="#" class="select-btn puebla">PUEBLA</a>
                 </nav>
             </article>
         </div>
@@ -85,16 +88,27 @@
             <!-- Agregar sticker flotante -->
             <img src="" alt="" class="sticker">
             <h4 class="artist-subtitle">Artistas invitados</h4>
-            <h2 class="artist-title">MÚSICA <br> QUE SÍ SABE</h2>
+            <h2 class="artist-title">MÚSICA <br><span class="color-title-red artist-title__down">QUE SÍ SABE</span></h2>
             <!-- Agregar dinamismo en la información -->
             <h4 class="artist-subtitle">27 SEPTIEMBRE 2:00 P.M. <br>CENTRO DINÁMICO PEGASO</h4>
             <!-- Agregar dinamismo a las fotos -->
-            <div class="artist-cont">
-                <!-- Agregar dinamismo a los titulos e imágenes -->
-                <div class="artist-card card1"></div>
-                <div class="artist-card card2"></div>
-                <div class="artist-card card3"></div>
-            </div>
+            <section class="artist-cards-container">
+                <article class="artist-card">
+                    <img src="img/timo.jpg" alt="TIMØ" class="card-img">
+                    <p class="card-title">TIMØ</p>
+                </article>
+
+                <article class="artist-card">
+                    <img src="img/piso21.jpg" alt="PISO 21" class="card-img">
+                    <p class="card-title">PISO 21</p>
+                </article>
+
+                <article class="artist-card">
+                    <img src="img/dstance.jpg" alt="Dstance" class="card-img">
+                    <p class="card-title">DSTANCE</p>
+                </article>
+            </section>
+
             <!-- Agregar sticker flotante -->
             <img src="" alt="" class="sticker">
         </div>
@@ -107,22 +121,38 @@
     <section class="restaurantes">
         <div class="max-cont">
             <div class="restaurantes-cont">
-                <div class="restaurantes-cont__column">
-                    <!-- Agregar imagenes y dinamismo -->
-                    <div class="restaurantes-card">LOS TACOS</div>
-                    <div class="restaurantes-card">LAS COSTILLAS</div>
-                    <div class="restaurantes-card">LA HAMBURGUESA</div>
-                    <div class="restaurantes-card">LOS POSTRES</div>
-                </div>
-                <div class="restaurantes-cont__column">
-                    <h2 class="restaurantes-info__title">UNA EXPERIENCIA <br> <span>QUE SE PRUEBA Y SE SABOREA</span>
+                <section class="restaurantes-cards">
+                    <article class="restaurante-card">
+                        <img src="img/tacos.jpg" alt="Los Tacos" class="restaurante-card__img">
+                        <p class="restaurante-card__title">LOS TACOS</p>
+                    </article>
+
+                    <article class="restaurante-card">
+                        <img src="img/costillas.jpg" alt="Las Costillas" class="restaurante-card__img">
+                        <p class="restaurante-card__title">LAS COSTILLAS</p>
+                    </article>
+
+                    <article class="restaurante-card">
+                        <img src="img/hamburguesa.jpg" alt="La Hamburguesa" class="restaurante-card__img">
+                        <p class="restaurante-card__title">LA HAMBURGUESA</p>
+                    </article>
+
+                    <article class="restaurante-card">
+                        <img src="img/postres.jpg" alt="Los Postres" class="restaurante-card__img">
+                        <p class="restaurante-card__title">LOS POSTRES</p>
+                    </article>
+                </section>
+
+                <section class="restaurantes-cont__column">
+                    <h2 class="restaurantes-info__title">UNA EXPERIENCIA <br> <span
+                            class="color-title-red restaurantes-title__down">QUE SE PRUEBA Y SE SABOREA</span>
                     </h2>
                     <div class="restaurantes-info__logo">
                         <!-- Agregar logo y dinamismo-->
-                        <img src="" alt="" class="info-logo__img">
+                        <img src="#" alt="" class="info-logo__img">
                     </div>
-                    <div class="restaurantes-info__btn">ASEGURA TU LUGAR</div>
-                </div>
+                    <a href="#" class="restaurantes-info__btn">ASEGURA TU LUGAR</a>
+                </section>
             </div>
         </div>
     </section>
@@ -138,7 +168,7 @@
             <div class="ubicacion-map">
                 <!-- Ingresar mapa -->
             </div>
-            <div class="ubicacion-map__btn">NO PIERDAS EL MAPA <br> ¡DESCARGALO AQUÍ!</div>
+            <a href="#" class="ubicacion-map__btn">NO PIERDAS EL MAPA <br> ¡DESCARGALO AQUÍ!</a>
             <div class="ubicacion-info">
                 <div class="ubicacion-info__column">
                     <!-- Agregar dinamismo -->
@@ -158,7 +188,6 @@
                     </p>
                 </div>
             </div>
-            <div class="ubicacion-map__btn">NO PIERDAS EL MAPA <br> ¡DESCARGALO AQUÍ!</div>
         </div>
     </section>
     <!-- Fin ubicación -->
@@ -176,7 +205,7 @@
                         2:00 P.M.</h2>
                     <p class="boletos-direccion">CENTRO DINÁMICO PEGASO, <br>
                         Toluca, Estado de México.</p>
-                    <div class="boletos-btn">Adquiérelos aquí</div>
+                    <a href="#" class="boletos-btn">Adquiérelos aquí</a>
                 </div>
             </div>
         </div>
@@ -221,7 +250,39 @@
     <section class="pattern-img">
         <!-- Agregrar img de patron entre  secciones -->
     </section>
-
+    <!-- Inicio próximos eventos -->
+    <section class="proximo">
+        <div class="max-cont">
+            <h2 class="proximo-title">PRÓXIMOS EVENTOS</h2>
+            <div class="proximo-logo">
+                <!--Agregar logo de Veracruz-->
+                <img src="" alt="" class="proximo-logo__img">
+            </div>
+            <p class="proximo-info">24 OCTUBRE 2:00 P.M. <br> REINO MÁGICO</p>
+            <a href="#" class="proximo-btn">ASEGURA TU LUAGR</a>
+        </div>
+    </section>
+    <!-- Fin lineamientos -->
+    <section class="pattern-img">
+        <!-- Agregrar img de patron entre  secciones -->
+    </section>
+    <footer class="footer">
+        <div class="max-cont">
+            <h4 class="footer-info">Síguenos en nuestras redes sociales:</h4>
+            <nav class="footer-nav">
+                <div class="footer-icon">
+                    <!-- Agregar icono -->
+                </div>
+                <div class="footer-icon">
+                    <!-- Agregar icono -->
+                </div>
+                <div class="footer-icon">
+                    <!-- Agregar icono -->
+                </div>
+            </nav>
+            <p class="footer-policy">Conóce la política de privacidad de Coca-Cola</p>
+        </div>
+    </footer>
 </body>
 
 </html>

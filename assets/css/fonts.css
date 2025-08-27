@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'BetterWithNarrow';
+  src: url('../fonts/BetterWith-Narrow.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeue';
+  src: url('../fonts/HelveticaNeue.ttc') format('truetype'); /* OJO con .ttc */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TCCHolidaysNarrow';
+  src: url('../fonts/TCCHolidays23Narrow-555bf0b6-c5be-4b24-98d8-eed65cd6fddc.otf_v.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}

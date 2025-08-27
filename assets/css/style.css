@@ -1,5 +1,383 @@
-:root{
+:root {
     --rojo: #F40009;
     --blanco: #ffffff;
     --negro: #000000;
+
+    /*----- Prueba -------*/
+    --prueba: 1px solid blue;
 }
+
+/*------ Generales --------*/
+.max-cont {
+    max-width: 1200px;
+    margin: 0 auto;
+    border: var(--prueba);
+}
+
+.hero,
+.ciudad,
+.artist,
+.restaurantes,
+.ubicacion,
+.boletos,
+.lineamientos,
+.proximo,
+.footer {
+    width: 100%;
+}
+
+.color-title-red {
+    color: var(--rojo);
+}
+
+body {
+    width: 100%;
+    font-size: 1.5rem;
+    position: relative;
+}
+
+/*--- Navbar --*/
+.header {
+    width: 100%;
+    position: sticky;
+    z-index: 9;
+    height: auto;
+    background-color: var(--negro);
+    color: var(--blanco);
+}
+
+.header-nav {
+    width: 100%;
+    display: flex;
+    align-content: center;
+}
+
+.header-logo {
+    width: 30%;
+    padding: 1rem;
+}
+
+.header-logo__img {
+    width: 45%;
+}
+
+.header-nav__list {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'HelveticaNeue';
+    font-size: 2rem;
+    gap: 3rem;
+}
+
+.nav-boletos__btn {
+    background-color: var(--rojo);
+    padding: 1.5rem 5rem;
+    border-radius: 50px;
+}
+
+
+/*------ HERO -------- */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 118px 1fr;
+    grid-template-rows: 590px 590px;
+    height: auto;
+}
+
+.item-1 {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+.hero-img-1,
+.hero-img-2 {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.item-2 {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+
+/* Ajustar eñ patron */
+.item-3 {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-pattern__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.item-4 {
+    grid-column: 3 / 4;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--rojo);
+    padding-right: calc((100vw - 1200px) / 2);
+    padding-left: 8rem;
+}
+
+/* ---------- Ajustar la letra----------- */
+.titulo {
+    display: block;
+    margin-left: 5rem;
+    font-size: 20rem;
+    letter-spacing: 0.5rem;
+    font-weight: 500;
+    line-height: 18rem;
+    font-family: 'BetterWithNarrow';
+}
+
+.logo-principal {
+    width: 80%;
+}
+
+/* ------ Selecciona tu ciudad-------- */
+.ciudad {
+    background-color: var(--negro);
+    color: var(--blanco);
+    text-align: center;
+    padding: 15rem;
+}
+
+.ciudad-info {
+    margin: 8rem auto;
+}
+
+.ciudad-info__text {
+    font-family: 'HelveticaNeue';
+    font-size: 2.5em;
+}
+
+.ciudad-select__title {
+    font-family: 'BetterWithNarrow';
+    font-size: 9rem;
+    font-weight: 300;
+    color: var(--rojo);
+}
+
+.ciudad-select__btn {
+    width: 100%;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.select-btn {
+    width: 30%;
+    border: 1px solid var(--blanco);
+    font-family: 'BetterWithNarrow';
+    font-size: 5rem;
+    font-weight: 300;
+    border-radius: 3rem;
+}
+
+/* -----Artistas----- */
+.artist {
+    background-color: var(--negro);
+    color: var(--blanco);
+    text-align: center;
+    padding: 10rem 0;
+}
+
+.artist-subtitle {
+    display: block;
+    width: 100%;
+    margin: 10rem auto;
+    font-size: 5rem;
+    font-family: 'HelveticaNeue';
+    font-weight: 200;
+}
+
+.artist-title {
+    font-family: 'BetterWithNarrow';
+    font-size: 25rem;
+    letter-spacing: 2rem;
+    line-height: 13rem;
+    font-weight: 300;
+}
+
+.artist-title__down {
+    font-size: 12rem;
+}
+
+/* ----- cards de artistas ------- */
+.artist-cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.artist-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    width: 32rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: rotate(-2deg);
+    transition: transform 0.3s ease;
+}
+
+.artist-card:nth-child(2) {
+    transform: rotate(2deg);
+}
+
+.artist-card:nth-child(3) {
+    transform: rotate(0deg);
+}
+
+.artist-card:hover {
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+.card-img {
+    width: 100%;
+    display: block;
+}
+
+.card-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 1rem 0;
+    letter-spacing: 1px;
+    color: var(--negro);
+}
+
+/* ---- Restaurantes ----- */
+.restaurantes {
+    background-color: var(--negro);
+    padding: 15rem 0;
+    color: var(--blanco);
+}
+
+.restaurantes-cont {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* ----- cards de restaurantes ------- */
+.restaurantes-cards {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    border: var(--prueba);
+}
+
+.restaurante-card {
+    background: var(--blanco);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.8rem;
+    transform: rotate(2deg);
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.restaurante-card:nth-child(2) {
+    transform: rotate(-2deg);
+}
+
+.restaurante-card:nth-child(3) {
+    transform: rotate(-4deg);
+}
+
+.restaurante-card:nth-child(4) {
+    transform: rotate(2deg);
+}
+
+.restaurante-card:hover {
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+.restaurante-card__img {
+    width: 100%;
+    display: block;
+    border-radius: 6px;
+}
+
+.restaurante-card__title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin: 1rem 0 0.5rem;
+    text-align: center;
+    letter-spacing: 1px;
+    color: var(--negro);
+}
+
+.restaurantes-cont__column{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.restaurantes-info__title{
+    font-size: 8.5rem;
+    font-family: 'BetterWithNarrow';
+    font-weight: 300;
+    letter-spacing: 1rem;
+    line-height: 5rem;
+}
+
+.restaurantes-info__logo{
+    width: 100%;
+    padding: 3rem 0;
+    border: var(--prueba);
+}
+
+.info-logo__img{
+    width: 40%;
+    margin: 0 auto;
+}
+
+.restaurantes-title__down{
+    font-size: 5rem;
+    letter-spacing: 0.5rem;
+}
+
+.restaurantes-info__btn{
+    display: block;
+    margin: 5rem auto;
+    width: 50%;
+    background-color: var(--blanco);
+    padding: 1rem;
+    border-radius: 2rem;
+    color: var(--negro);
+}
+
+/* ---- Ubicación ------- */
+.ubicacion{
+    background-color: var(--negro);
+    color: var(--blanco);
+}
+
