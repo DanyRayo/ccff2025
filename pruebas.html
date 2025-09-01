@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    :root {
+    --red-coke: #e60000; /* Un rojo de ejemplo, ajusta según el diseño */
+    --black-coke: #000000;
+    --white-coke: #ffffff;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif; /* Fuente genérica */
+}
+
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr 40px 1fr; /* Columna de la izquierda más ancha */
+    height: 100dvh; /* Altura 100% del viewport */
+}
+
+/* Estilos de la sección de imágenes (izquierda) */
+.content-section {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.image-food {
+    background-image: url('./assets/img/tacos.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.image-music {
+    background-image: url('./assets/img/hero-artist.png');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Estilos de la sección de branding (derecha) */
+.branding-section {
+    background-color: var(--red-coke);
+    color: var(--white-coke);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+.branding-section h1, .branding-section p {
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.branding-section h1 {
+    font-size: clamp(1.5rem, 5vw, 3rem); /* Tamaño de fuente responsivo */
+}
+
+.branding-section p {
+    font-size: clamp(1rem, 3vw, 2rem);
+    margin-top: 1rem;
+}
+
+.vertical-pattern {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px; /* Ancho del patrón */
+    height: 100%;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--white-coke) 0,
+        var(--white-coke) 10px,
+        var(--red-coke) 10px,
+        var(--red-coke) 20px
+    ); /* Patrón de cuadros blancos y rojos */
+}
+
+/* Media Query para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    .main-container {
+        grid-template-columns: 1fr; /* Una sola columna en móviles */
+        grid-template-rows: 2fr 1fr; /* Las imágenes arriba, el texto abajo */
+    }
+
+    .branding-section {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .vertical-pattern {
+        display: none; /* Ocultamos el patrón para no saturar */
+    }
+}
+  </style>
+  <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coca-Cola Food Fest</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="main-container">
+        <section class="content-section">
+            <div class="image-food">
+                </div>
+            <div class="image-music">
+                </div>
+        </section>
+        <section class="branding-section">
+            <div class="logo">
+                <img src="./assets/img/LOGO_FoodFest.svg" alt="Coca-Cola Logo">
+            </div>
+            <div class="text-content">
+                <h1>COCA-COLA<br>FOOD FEST</h1>
+                <p>COMIDA.</p>
+                <p>MÚSICA.</p>
+                <p>MÉXICO.</p>
+            </div>
+            <div class="vertical-pattern"></div>
+        </section>
+    </main>
+</body>
+</html>
+  
+</body>
+
+</html>

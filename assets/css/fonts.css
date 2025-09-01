@@ -1,20 +1,39 @@
 @font-face {
   font-family: 'BetterWithNarrow';
-  src: url('../fonts/BetterWith-Narrow.ttf') format('truetype');
+  src: url('../fonts/BetterWith-Narrow.woff2') format('woff2'),
+       url('../fonts/BetterWith-Narrow.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BetterWithNarrow-07';
+  src: url('../fonts/BetterWithNarrow-07d66ecc-8cad-44f6-b61f-1f3a0c012330.ttf_v.woff2') format('woff2'),
+       url('../fonts/BetterWithNarrow-07d66ecc-8cad-44f6-b61f-1f3a0c012330.ttf_v.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'HelveticaNeue';
-  src: url('../fonts/HelveticaNeue.ttc') format('truetype'); /* OJO con .ttc */
+  src: url('../fonts/HelveticaNeue.woff2') format('woff2'),
+       url('../fonts/HelveticaNeue.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'TCCHolidaysNarrow';
-  src: url('../fonts/TCCHolidays23Narrow-555bf0b6-c5be-4b24-98d8-eed65cd6fddc.otf_v.otf') format('opentype');
+  src: url('../fonts/TCCCHolidays23Narrow-555bf0b6-c5be-4b24-98d8-eed65cd6fddc.otf_v.woff2') format('woff2'),
+       url('../fonts/TCCCHolidays23Narrow-555bf0b6-c5be-4b24-98d8-eed65cd6fddc.otf_v.woff') format('woff');
   font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TCCCUnityCondensed';
+  src: url('../fonts/TCCC-UnityCondensedMedium-7054c33e-5d14-4f31-8032-e06f089c6107.ttf_v.woff2') format('woff2'),
+       url('../fonts/TCCC-UnityCondensedMedium-7054c33e-5d14-4f31-8032-e06f089c6107.ttf_v.woff') format('woff');
+  font-weight: 500;
   font-style: normal;
 }
