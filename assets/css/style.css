@@ -38,7 +38,7 @@
     color: var(--rojo);
 }
 
-.color-title-white{
+.color-title-white {
     color: var(--blanco);
 }
 
@@ -94,7 +94,7 @@ body {
 
 
 /*------ HERO -------- */
-.hero{
+.hero {
     display: grid;
     grid-template-columns: 1fr 50px 1.3fr;
     height: 80dvh;
@@ -105,7 +105,8 @@ body {
     grid-template-rows: repeat(2, 1fr);
 }
 
-.img-tacos, .img-artist{
+.img-tacos,
+.img-artist {
     background-image: url(https://placehold.co/900x400);
     background-repeat: no-repeat;
     background-size: cover;
@@ -119,7 +120,7 @@ body {
     object-fit: cover;
 }
 
-.hero-pattern{
+.hero-pattern {
     background-image: url('../img/franja2.svg');
     background-repeat: repeat;
     width: 100%;
@@ -137,11 +138,11 @@ body {
     padding-right: calc((100vw - 1200px) / 2);
 }
 
-.logo-principal{
+.logo-principal {
     width: fit-content;
 }
 
-.titulo{
+.titulo {
     font-family: var(--better);
     font-size: clamp(4rem, 8vw, 13rem);
     line-height: clamp(3.5rem, 7.5vw, 12rem);
@@ -149,12 +150,12 @@ body {
 }
 
 /* --- patron sección --- */
-.pattern{
+.pattern {
     width: 100%;
     height: 50px;
 }
 
-.pattern-img{
+.pattern-img {
     display: block;
     width: 100%;
     object-fit: cover;
@@ -162,54 +163,54 @@ body {
 }
 
 /* --- Selecciona tu ciudad --- */
-.ciudad{
+.ciudad {
     padding: 5rem 0;
     scroll-snap-align: start;
     background-color: var(--negro);
     color: var(--blanco);
 }
 
-.ciudad-logo{
+.ciudad-logo {
     width: 30%;
     margin: 0 auto;
 }
 
-.ciudad-logo__img{
+.ciudad-logo__img {
     display: block;
     width: fit-content;
 }
 
-.ciudad-info{
+.ciudad-info {
     width: 100%;
     margin: 0 auto;
 }
 
-.ciudad-info__text{
+.ciudad-info__text {
     font-family: var(--unity);
     font-size: 3rem;
     font-weight: 700;
     text-align: center;
 }
 
-.ciudad-select{
+.ciudad-select {
     margin: 5rem auto;
     text-align: center;
 }
 
-.ciudad-select__title{
+.ciudad-select__title {
     font-family: var(--better);
     font-size: 5rem;
     letter-spacing: 0.3rem;
 }
 
-.ciudad-select__btn{
+.ciudad-select__btn {
     display: flex;
     margin: 3rem auto;
     align-items: center;
     justify-content: space-evenly;
 }
 
-.select-btn{
+.select-btn {
     padding: 2rem 5rem;
     background-color: var(--negro);
     border: 1px solid var(--blanco);
@@ -218,30 +219,30 @@ body {
     font-size: 2.5rem;
 }
 
-.cdmx{
+.cdmx {
     background-color: var(--blanco);
     color: var(--negro);
 }
 
 /* --- Artistas --- */
-.artist{
+.artist {
     background-color: var(--negro);
     text-align: center;
     padding: 10rem;
 }
 
-.artist-title{
+.artist-title {
     font-family: var(--better);
     font-size: clamp(5rem, 10vw, 20rem);
     line-height: clamp(3.5rem, 7vw, 10rem);
     font-weight: 400;
 }
 
-.artist-title__down{
+.artist-title__down {
     font-size: clamp(3rem, 6vw, 10rem);
 }
 
-.artist-subtitle{
+.artist-subtitle {
     margin: clamp(1.5rem, 3vw, 5rem) auto;
     font-family: var(--unity);
     line-height: 1;
@@ -370,11 +371,11 @@ body {
 }
 
 
-.card-subtitle{
+.card-subtitle {
     font-size: 2rem;
 }
 
-.restaurantes-cont__column{
+.restaurantes-cont__column {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -383,7 +384,7 @@ body {
     text-align: center;
 }
 
-.restaurantes-info__title{
+.restaurantes-info__title {
     font-size: 8.5rem;
     font-family: var(--better);
     font-weight: 300;
@@ -391,23 +392,23 @@ body {
     line-height: 5rem;
 }
 
-.restaurantes-info__logo{
+.restaurantes-info__logo {
     width: 100%;
     margin-top: 5rem;
     padding: 3rem 0;
 }
 
-.info-logo__img{
+.info-logo__img {
     width: 50%;
     margin: 0 auto;
 }
 
-.restaurantes-title__down{
+.restaurantes-title__down {
     font-size: 5rem;
     letter-spacing: 0.5rem;
 }
 
-.restaurantes-info__btn{
+.restaurantes-info__btn {
     display: block;
     margin: 5rem auto;
     width: 50%;
@@ -418,17 +419,18 @@ body {
 }
 
 /* --- Ubicación --- */
-.ubicacion{
+.ubicacion {
     background-color: var(--negro);
     color: var(--blanco);
     padding: 5rem 0;
 }
 
-.ubicacion-title{
+.ubicacion-title {
     font-family: var(--better);
     text-align: center;
     font-size: 8.5rem;
     font-weight: 100;
+    text-transform: uppercase;
 }
 
 /* ---- MAPA --- */
@@ -448,7 +450,7 @@ body {
     border-radius: 2.0rem;
 }
 
-.ubicacion-map__btn{
+.ubicacion-map__btn {
     margin: 5rem auto;
     width: 30%;
     padding: 2rem;
@@ -460,7 +462,7 @@ body {
     background-color: var(--rojo);
 }
 
-.ubicacion-info{
+.ubicacion-info {
     width: 100%;
     display: flex;
     align-items: center;
@@ -469,11 +471,11 @@ body {
     font-size: 3rem;
 }
 
-.ubicacion-info__column{
+.ubicacion-info__column {
     width: 30%;
 }
 
-.ubicacion-info__icons{
+.ubicacion-info__icons {
     margin: 3rem 0;
     width: 100%;
     height: 50px;
@@ -483,23 +485,23 @@ body {
 }
 
 .waze,
-.maps{
+.maps {
     width: fit-content;
     margin: 3rem 0;
 }
 
-.icon{
+.icon {
     display: block;
     width: 35%;
     margin: 0 auto;
 }
 
 /*--- Boletos ---*/
-.boletos{
+.boletos {
     height: 100dvh;
 }
 
-.boletos-cont{
+.boletos-cont {
     width: 100%;
     height: 100%;
     display: flex;
@@ -507,33 +509,143 @@ body {
     justify-content: center;
 }
 
-.boletos-image{
+.boletos-image {
     flex: 1;
     height: 100%;
     background-color: aqua;
 }
 
-.bolestos-image__img{
+.bolestos-image__img {
     display: block;
     width: 100%;
     height: 100%;
 }
 
-.boletos-info{
+.boletos-info {
     flex: 1;
     height: 100%;
     background-color: var(--rojo);
     padding-right: calc((100vw - 1200px) / 2);
 }
 
-.boletos-info__text{
+.boletos-info__text {
     width: 100%;
     height: 100%;
-    padding: 20rem;
+    padding: 10rem;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    border: var(--prueba);
     margin: 0 auto;
+    gap: 8rem;
+    color: var(--blanco);
+}
+
+.boletos-title{
+    font-family: var(--better);
+    font-size: 6rem;
+    text-align: center;
+    font-weight: 100;
+}
+
+.boletia-logo{
+    display: block  ;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.boletia-logo__img{
+    width: 100%;
+}
+
+.boletos-btn{
+    background-color: var(--blanco);
+    font-family: var(--unity);
+    font-size: 3rem;
+    color: var(--rojo);
+    font-weight: 700;
+    padding: 1rem 10rem;
+    border-radius: 2rem;
+}
+
+/* --- Próximos eventos --- */
+.proximo{
+    background-color: var(--rojo);
+    color: var(--blanco);
+    text-align: center;
+    padding: 5rem 0;
+}
+
+.proximo-title{
+    font-family: var(--better);
+    font-weight: 100;
+    font-size: 8rem;
+}
+
+.proximo-info{
+    font-family: var(--unity);
+    font-weight: 100;
+    font-size: 5rem;
+}
+
+.proximo-btn{
+    display: block;
+    width: 30%;
+    margin: 3rem auto;
+    margin-bottom: 5rem;
+    font-family: var(--unity);
+    font-size: 3rem;
+    font-weight: 100;
+    padding: 2rem 4rem;
+    color: var(--negro);
+    background-color: var(--blanco);
+    border-radius: 1rem;
+}
+
+.footer{
+    background-color: var(--negro);
+    color: var(--blanco);
+    text-align: center;
+    padding: 5rem 0;
+    padding-bottom: 1rem;
+}
+
+.footer-info{
+    font-family: var(--unity);
+    font-size: 5rem;
+    font-weight: 100;
+}
+
+.footer-policy{
+    font-family: var(--unity);
+    font-size: 2rem;
+    font-weight: 100;
+}
+
+.lineamientos{
+    width: 100%;
+    margin: 5rem auto;
+    font-family: var(--unity);
+    font-size: 2rem;
+}
+
+.lineamientos-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
+  gap: 1rem 4rem;
+  text-align: left;
+  max-width: 1100px;
+  margin: 2rem auto;
+  list-style-type: disc;
+  padding-left: 1.5rem; /* para que las viñetas no queden pegadas */
+}
+
+.lineamientos-item {
+  font-size: 2rem;
+  line-height: 1.6;
+}
+
+.lieamientos-list-info{
+    margin: 3rem auto;
+    display: block;
 }
