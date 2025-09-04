@@ -1,0 +1,166 @@
+@media (max-width: 900px) {
+
+    /* Hero */
+    .max-cont {
+        padding: 2rem;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+    }
+
+    .hero-pattern {
+        order: 2;
+        height: 100px;
+        width: 100%;
+        background-image: url('../img/patron-horizontal.svg');
+        background-repeat: repeat-x;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .hero-image {
+        order: 3;
+        grid-template-rows: 200px 200px;
+    }
+
+    .hero-info {
+        order: 1;
+        padding: 2rem;
+    }
+
+}
+
+@media (min-width: 768px) {
+    .navbar__toggle {
+        display: none;
+    }
+
+    .navbar__menu {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        position: static;
+        width: auto;
+        background: none;
+        border: none;
+        box-shadow: none;
+    }
+
+    .navbar__list {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .navbar__link {
+        padding: 0.5rem 1rem;
+        position: relative;
+    }
+
+    /* General hover rule that applies to non-CTA links. */
+    .navbar__link:not(.navbar__link--cta):hover,
+    .navbar__link:not(.navbar__link--cta):focus {
+        background-color: transparent;
+    }
+
+    /* Underline animation */
+    .navbar__link:not(.navbar__link--cta)::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 3px;
+        background-color: var(--color-secondary);
+        transition: all var(--transition-speed) ease;
+        transform: translateX(-50%);
+    }
+
+    .navbar__link:not(.navbar__link--cta):hover::after,
+    .navbar__link:not(.navbar__link--cta):focus::after {
+        width: 100%;
+    }
+
+    /* CTA Button */
+    .navbar__item--cta {
+        margin-left: 1rem;
+    }
+
+    .navbar__link--cta {
+        background-color: var(--color-primary);
+        color: #fff;
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        transition: transform var(--transition-speed) var(--transition-bounce),
+            background-color var(--transition-speed) ease;
+    }
+
+    .navbar__link--cta:hover,
+    .navbar__link--cta:focus {
+        background-color: var(--color-primary);
+        transform: scale(1.1);
+    }
+}
+
+/* Reduced Motion Accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+    /* Disable animations */
+    .navbar__toggle .bar,
+    .navbar__link:not(.navbar__link--cta)::after,
+    .navbar__link--cta {
+        transition: none;
+    }
+
+    /* Instantly show underline for non-CTA links on hover */
+    .navbar__link:not(.navbar__link--cta):hover::after,
+    .navbar__link:not(.navbar__link--cta):focus::after {
+        width: 100%;
+    }
+
+    /* Disable scaling on CTA and just change color for feedback */
+    .navbar__link--cta:hover,
+    .navbar__link--cta:focus {
+        transform: none;
+        background-color: var(--color-primary-darker);
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+
+    /* ---- cards restaurantes----- */
+    .restaurantes-cards {
+        order: 2;
+    }
+
+    .restaurantes-cont__column {
+        order: 1;
+    }
+
+    /* --- Boletos --- */
+    .boletos {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .boletos-cont {
+        flex-direction: column-reverse;
+    }
+
+    .boletos-image {
+        width: 100%;
+        height: 100px;
+        padding: 0;
+    }
+
+    /* --- footer --- */
+    @media (max-width: 700px) {
+        .lineamientos-list {
+            grid-template-columns: 1fr;
+        }
+
+    }
+}

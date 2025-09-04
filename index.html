@@ -10,66 +10,78 @@
         content="Coca-Cola, Food Fest, Festival de música, Festival gastronómico, México 2025, artistas en vivo">
     <meta name="author" content="Coca-Cola">
 
-    <link rel="stylesheet" href="./assets/css/fonts.css">
+    <link rel="stylesheet" href="./assets/css/scroll.css">
     <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/fonts.css">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/custom.css">
+
+    <link rel="shortcut icon" href="./assets/img/LOGO_FoodFest.svg" type="image/x-icon">
     <title>Coca-Cola Food Fest 2025</title>
 </head>
 
 <body>
     <!-- Inicio header -->
-    <header class="header">
-        <div class="max-cont">
-            <nav class="header-nav">
-                <div class="header-logo">
-                    <img src="./assets/img/logo-header.png" alt="Logotipo Coca-Cola Food Fest 2025"
-                        class="header-logo__img">
-                </div>
-                <ul class="header-nav__list">
-                    <li class="header-nav__item"><a href="#ciudades"></a>Selecciona tu ciudad</li>
-                    <li class="header-nav__item"><a href="#artistas"></a>Artistas</li>
-                    <li class="header-nav__item"><a href="#ubicacion"></a>Ubicación</li>
-                    <li class="header-nav__item nav-boletos__btn"><a href="#boletos"></a>Boletos</li>
+    <header class="navbar">
+        <div class="navbar__container">
+            <a href="#" class="navbar__brand"><img src="./assets/img/logo-header.png"
+                    alt="Logotipo Coca-Cola Food Fest 2025" class="header-logo__img"></a>
+            <button class="navbar__toggle" id="navbarToggle" aria-label="Toggle navigation" aria-controls="navbarMenu"
+                aria-expanded="false">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </button>
+            <nav id="navbarMenu" class="navbar__menu" role="navigation" aria-labelledby="navbarToggle">
+                <ul class="navbar__list">
+                    <li class="navbar__item"><a href="#ciudades" class="navbar__link">Selecciona tu ciudad</a></li>
+                    <li class="navbar__item"><a href="#artistas" class="navbar__link">Artistas</a></li>
+                    <li class="navbar__item"><a href="#ubicacion" class="navbar__link">Ubicación</a></li>
+                    <li class="navbar__item navbar__item--cta"><a href="#boletos"
+                            class="navbar__link navbar__link--cta">Boletos</a></li>
                 </ul>
             </nav>
         </div>
     </header>
     <!-- Fin header nav -->
     <!-- Inicio hero -->
-    <section class="hero">
+    <main class="hero">
         <div class="hero-image">
             <div class="hero-image__container img-tacos"></div>
             <div class="hero-image__container img-artist"></div>
         </div>
-        <div class="hero-pattern"></div>
+        <div id="pattern-container" class="hero-pattern"></div>
         <div class="hero-info">
             <img src="./assets/img/LOGO_FoodFest.svg" alt="Coca-Cola Logo" class="logo-principal">
             <h1 class="titulo">COMIDA.<br>MÚSICA.<br>MÉXICO.</h1>
         </div>
-    </section>
+    </main>
     <section class="pattern">
         <img src="./assets/img/patron-mexa.svg" alt="Patron" class="pattern-img">
     </section>
     <!-- Section ciudad -->
-    <section class="ciudad">
+    <section class="ciudad" id="ciudades">
         <div class="max-cont">
-            <div class="ciudad-logo">
-                <!-- Agregar dinamismo al logo -->
-                <img src="./assets/img/CDMX-LOGO.png" alt="logo ciudad" class="ciudad-logo__img">
-            </div>
-            <div class="ciudad-info">
-                <p class="ciudad-info__text">Te invitamos al Coca-Cola Food Fest. Un lugar donde la comida se convierte
-                    en experiencia, la música en energía y la cultura en celebración. Ven a disfrutar de grandes
-                    artistas, sabores irresistibles y momentos únicos que solo se viven cuando estamos juntos.</p>
-            </div>
-            <article class="ciudad-select">
-                <h2 class="ciudad-select__title">SELECCIONA TU CIUDAD:</h2>
+
+            <figure class="ciudad-logo fade-in">
+                <img src="./assets/img/CDMX-LOGO.png" alt="Coca-Cola Food Fest CDMX Logo" class="ciudad-logo__img">
+            </figure>
+
+            <article class="ciudad-info fade-in">
+                <p class="ciudad-info__text fade-in">
+                    Te invitamos al Coca-Cola Food Fest. Un lugar donde la comida se convierte en experiencia, la música
+                    en energía y la cultura en celebración. Ven a disfrutar de grandes artistas, sabores irresistibles y
+                    momentos únicos que solo se viven cuando estamos juntos.
+                </p>
+            </article>
+
+            <article class="ciudad-select fade-in">
+                <h2 class="ciudad-select__title fade-in">Selecciona tu ciudad:</h2>
                 <nav class="ciudad-select__btn">
-                    <a href="#" class="select-btn cdmx">CDMX</a>
-                    <a href="#" class="select-btn toluca">TOLUCA</a>
-                    <a href="#" class="select-btn puebla">PUEBLA</a>
+                    <a href="#" class="select-btn" data-city="cdmx">CDMX</a>
+                    <a href="#" class="select-btn" data-city="toluca">Toluca</a>
+                    <a href="#" class="select-btn" data-city="puebla">Puebla</a>
                 </nav>
             </article>
+
         </div>
     </section>
     <!-- Fin section ciudad -->
@@ -77,26 +89,28 @@
         <img src="./assets/img/patron-horizontal.svg" alt="Patron" class="pattern-img">
     </section>
     <!-- Inicio line up -->
-    <section class="artist">
+    <section class="artist" id="artistas">
         <div class="max-cont">
-            <h2 class="artist-title color-title-red">MÚSICA <br><span class="artist-title__down color-title-white">QUE
-                    SÍ SABE</span></h2>
+            <header class="artist-head fade-in">
+                <h2 class="artist-title">MÚSICA <br><span class="artist-title__down">QUE
+                        SÍ SABE</span></h2>
+            </header>
             <!-- Agregar dinamismo en la información -->
-            <h4 class="artist-subtitle color-title-white">27 SEPTIEMBRE 2:00 P.M. <br>ESTADIO FRAY NANO</h4>
+            <h3 class="artist-subtitle">27 SEPTIEMBRE 2:00 P.M. <br>ESTADIO FRAY NANO</h3>
             <!-- Agregar dinamismo a las fotos -->
-            <section class="artist-cards-container">
+            <section class="artist-cards-container artists">
                 <article class="artist-card">
-                    <img src="./assets/img/intocable.jpg" alt="INTOCABLE" class="card-img">
+                    <img src="./assets/img/intocable.jpg" alt="INTOCABLE" class="card-img fade-in">
                     <p class="card-title">INTOCABLE</p>
                 </article>
 
                 <article class="artist-card">
-                    <img src="./assets/img/motel.jpg" alt="MOTEL" class="card-img">
+                    <img src="./assets/img/motel.jpg" alt="MOTEL" class="card-img fade-in">
                     <p class="card-title">MOTEL</p>
                 </article>
 
                 <article class="artist-card">
-                    <img src="./assets/img/matisse.jpg" alt="MATISSE" class="card-img">
+                    <img src="./assets/img/matisse.jpg" alt="MATISSE" class="card-img fade-in">
                     <p class="card-title">MATISSE</p>
                 </article>
             </section>
@@ -113,32 +127,35 @@
                 <section class="restaurantes-cards">
                     <article class="restaurante-card">
                         <img src="./assets/img/cdmx-taco.jpg" alt="TACO'N TODO" class="restaurante-card__img">
-                        <p class="restaurante-card__title"><span class="card-subtitle">BARRIO</span> <br>TACO'N TODO</p>
+                        <p class="restaurante-card__title"><span class="card-subtitle">BARRIO</span> <br>TACO'N TODO
+                        </p>
                     </article>
 
                     <article class="restaurante-card">
                         <img src="./assets/img/cdmx-costillas.jpg" alt="EL MERO MERO" class="restaurante-card__img">
-                        <p class="restaurante-card__title"><span class="card-subtitle">BARRIO</span> <br>EL MERO MERO
+                        <p class="restaurante-card__title"><span class="card-subtitle">BARRIO</span> <br>EL MERO
+                            MERO
                         </p>
                     </article>
 
                     <article class="restaurante-card">
                         <img src="./assets/img/cdmx-hamburguesa.jpg" alt="APAPACHO" class="restaurante-card__img">
-                        <p class="restaurante-card__title"><span class="card-subtitle">BARRIO</span> <br>APAPACHO</p>
+                        <p class="restaurante-card__title"><span class="card-subtitle">BARRIO</span> <br>APAPACHO
+                        </p>
                     </article>
 
                     <article class="restaurante-card">
                         <img src="./assets/img/cdmx-postres.jpg" alt="CAPRICHO" class="restaurante-card__img">
-                        <p class="restaurante-card__title"><span class="card-subtitle">BARRIO</span> <br>CAPRICHO</p>
+                        <p class="restaurante-card__title"><span class="card-subtitle">BARRIO</span> <br>CAPRICHO
+                        </p>
                     </article>
                 </section>
 
-                <section class="restaurantes-cont__column">
-                    <h2 class="restaurantes-info__title">UNA EXPERIENCIA <br> <span
-                            class="color-title-red restaurantes-title__down">QUE SE PRUEBA Y SE SABOREA</span>
-                    </h2>
+                <section class="restaurantes-cont__column fade-in">
+                    <h2 class="restaurantes-info__title">UNA EXPERIENCIA</h2>
+                    <h3 class="restaurantes-subtitle">QUE SE PRUEBA Y SE SABOREA</h3>
                     <div class="restaurantes-info__logo">
-                        <img src="./assets/img/CDMX-LOGO.png" alt="" class="info-logo__img">
+                        <img src="./assets/img/CDMX-LOGO.png" alt="Logo CDMX" class="info-logo__img">
                     </div>
                 </section>
             </div>
@@ -149,18 +166,20 @@
         <img src="./assets/img/patron-horizontal.svg" alt="Patron" class="pattern-img">
     </section>
     <!-- Inicio ubicación -->
-    <section class="ubicacion">
+    <section class="ubicacion" id="ubicacion">
         <div class="max-cont">
             <!-- mapa interactivo -->
-            <h2 class="ubicacion-title">Ubicación</h2>
+            <h2 class="ubicacion-title fade-in">Ubicación</h2>
             <!-- Agregar dinamismo -->
-            <div class="ubicacion-map">
-                <iframe src="./assets/maps/TOLUCA-SN/genially_toluca_sin/genially.html" frameborder="0"
-                    class="mapa-iframe"></iframe>
+            <div class="ubicacion-map" style="overflow: hidden;">
+                <iframe src="./assets/maps/Mapa-cdmx/genially.html" scrolling="no" allowfullscreen="true"
+                    title="Mapa del evento" frameborder="0" class="mapa-iframe"></iframe>
             </div>
-            <a href="#" class="ubicacion-map__btn">NO PIERDAS EL MAPA <br> ¡DESCARGALO AQUÍ!</a>
+            <a href="" download="mapa-cdmx.jpg" class="ubicacion-map__btn fade-in">
+                NO PIERDAS EL MAPA <br> ¡DESCÁRGALO AQUÍ!
+            </a>
             <div class="ubicacion-info">
-                <div class="ubicacion-info__column">
+                <div class="ubicacion-info__column fade-in">
                     <!-- Agregar dinamismo -->
                     <p class="ubicacion-info__direccion">
                         Dirección: <br>
@@ -168,12 +187,14 @@
                         Estado de México, México.
                     </p>
                 </div>
-                <div class="ubicacion-info__column">
+                <div class="ubicacion-info__column fade-in">
                     <p>¿Cómo llegar?<br>
                         Selecciona la ruta de tu preferencia: <br>
                         <div class="ubicacion-info__icons">
-                            <a href="#" class="waze"><img src="./assets/img/waze_off.svg" alt="waze" class="icon"></a>
-                            <a href="#" class="maps"><img src="./assets/img/maps.svg" alt="maps" class="icon"></a>
+                            <a href="#" target="_blank" class="waze"><img src="./assets/img/waze_off.svg" alt="waze"
+                                    class="icon"></a>
+                            <a href="#" target="_blank" class="maps"><img src="./assets/img/maps.svg" alt="maps"
+                                    class="icon"></a>
                         </div>
                     </p>
                 </div>
@@ -185,70 +206,99 @@
         <img src="./assets/img/patron-horizontal.svg" alt="Patron" class="pattern-img">
     </section>
     <!-- Inicio boletos -->
-    <section class="boletos">
+    <section id="boletos" class="boletos">
         <div class="boletos-cont">
-            <div class="boletos-image">
+            <div class="boletos-image fade-in">
                 <img src="./assets/img/bolestos-img.png" alt="Concierto" class="bolestos-image__img">
             </div>
             <div class="boletos-info">
                 <div class="boletos-info__text">
-                    <h2 class="boletos-title">VENTA DE BOLETOS</h2>
-                    <div class="boletia-logo">
-                        <img src="./assets/img/LOGO/LOGO BOLETIA/Logo-boletia-negro.png" alt=""
+                    <h2 class="boletos-title fade-in">VENTA DE BOLETOS</h2>
+                    <div class="boletia-logo fade-in">
+                        <img src="./assets/img/LOGO/LOGO BOLETIA/Logo-boletia-negro.png" alt="Logo boletia"
                             class="boletia-logo__img">
                     </div>
-                    <a href="#" class="boletos-btn">COMPRA TUS BOLETOS</a>
+                    <a href="#" class="boletos-btn fade-in">COMPRA TUS BOLETOS</a>
                 </div>
             </div>
         </div>
     </section>
     <!-- Fin boletos -->
-    <section class="pattern-img">
-        <img src="./assets/img/patron-horizontal.svg" alt="Patron" class="pattern-img">
-    </section>
-    <!-- Fin lineamientos -->
-    <section class="pattern-img">
+    <section class="pattern">
         <!-- Agregrar img de patron entre  secciones -->
         <img src="./assets/img/patron-horizontal.svg" alt="Patron" class="pattern-img">
     </section>
     <!-- Inicio próximos eventos -->
     <section class="proximo">
         <div class="max-cont">
-            <h2 class="proximo-title">PRÓXIMOS EVENTOS</h2>
-            <div class="proximo-logo">
-                <!--Agregar logo de Veracruz-->
-                <img src="" alt="" class="proximo-logo__img">
-            </div>
-            <p class="proximo-info">24 OCTUBRE 2:00 P.M. <br> REINO MÁGICO</p>
-            <a href="#" class="proximo-btn">COMPRA TUS BOLETOS</a>
+            <h2 class="proximo-title fade-in">PRÓXIMOS EVENTOS</h2>
+            <figure class="ciudad-logo">
+                <img src="./assets/img/VERACRUZ-LOGO-8.png" alt="Coca-Cola Food Fest VERACRUZ Logo"
+                    class="ciudad-logo__img fade-in">
+            </figure>
+            <p class="proximo-info fade-in">24 OCTUBRE 2:00 P.M. <br> REINO MÁGICO</p>
+            <a href="https://coca-cola-food-fest-2025-veracruz.boletia.com/?billboard=3291" target="_blank"
+                class="proximo-btn fade-in">COMPRA TUS BOLETOS</a>
         </div>
     </section>
     <!-- Fin lineamientos -->
-    <section class="pattern-img">
+    <section class="pattern">
         <!-- Agregrar img de patron entre  secciones -->
         <img src="./assets/img/patron-horizontal.svg" alt="Patron" class="pattern-img">
     </section>
+    <div class="coke-city-selector">
+        <button id="cokeBtn">🌵 Andamos en CDMX 📍</button>
+        <ul id="cokeList">
+            <li class="cokeList__item toluca-btn" data-city="toluca">IR A TOLUCA</li>
+            <li class="cokeList__item puebla-btn" data-city="puebla">IR A PUEBLA</li>
+            <li class="cokeList__item cdmx-btn" data-city="cdmx">IR A CDMX</li>
+        </ul>
+        <!-- Burbujas mexicanas -->
+        <div class="bubbles">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
     <footer class="footer">
         <div class="max-cont">
             <h4 class="footer-info">Síguenos en nuestras redes sociales:</h4>
             <nav class="footer-nav">
                 <div class="footer-icon">
-                    <!-- Agregar icono -->
+                    <a href="https://www.facebook.com/CocaColaMx/?locale=es_LA" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-facebook" viewBox="0 0 16 16">
+                            <path
+                                d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
+                        </svg>
+                    </a>
                 </div>
                 <div class="footer-icon">
-                    <!-- Agregar icono -->
+                    <a href="https://www.instagram.com/cocacolamx/?hl=es" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-instagram" viewBox="0 0 16 16">
+                            <path
+                                d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+                        </svg>
+                    </a>
                 </div>
                 <div class="footer-icon">
-                    <!-- Agregar icono -->
+                    <a href="https://www.tiktok.com/@cocacola?lang=es" target="_blank"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-tiktok" viewBox="0 0 16 16">
+                            <path
+                                d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z" />
+                        </svg></a>
                 </div>
             </nav>
-            <p class="footer-policy">Conóce la política de privacidad de Coca-Cola.</p>
+            <p class="footer-policy">
+                <a target="_blank" href="https://www.coca-cola.com/privacy-policy">Conoce la política de privacidad de
+                    Coca-Cola</a>.
+            </p>
             <!-- Section lineamientos -->
-            <section class="lineamientos">
-                <p class="lineamientos-text">Festival 100% libre de humo, no se permitirá el acceso de cigarros,
+            <article class="lineamientos">
+                <h2 class="lineamientos-text">Festival 100% libre de humo, no se permitirá el acceso de cigarros,
                     cigarros
-                    electrónicos, vapeadores.</p>
-                <h4 class="lieamientos-list-info">ASÍ COMO:</h4>
+                    electrónicos, vapeadores.</h2>
+                <h2 class="lieamientos-list-info">ASÍ COMO:</h2>
                 <ul class="lineamientos-list">
 
                     <li class="lineamientos-item">Equipo profesional de grabación de video o audio: Cámaras de video
@@ -274,9 +324,10 @@
                     </li>
                     <li class="lineamientos-item">Fundas para cámaras.</li>
                 </ul>
-            </section>
+            </article>
         </div>
     </footer>
+    <script src="./assets/js/main.js"></script>
 </body>
 
 </html>

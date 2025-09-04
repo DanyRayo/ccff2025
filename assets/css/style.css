@@ -3,6 +3,13 @@
     --blanco: #ffffff;
     --negro: #000000;
 
+    --color-background: #fff;
+    --color-text: #000000;
+    --color-primary: #F40009;
+    --color-primary-darker: #F40009;
+    --color-secondary: #F40009;
+    --color-highlight-bg: #f2f5f7;
+
     /*----- Prueba -------*/
     --prueba: 1px solid blue;
 
@@ -12,6 +19,13 @@
     --better: 'BetterWithNarrow-07', sans-serif;
     --holi: 'TCCHolidaysNarrow', sans-serif;
     --unity: 'TCCCUnityCondensed', sans-serif;
+
+    --font-weight-bold: 700;
+    --navbar-height: 80px;
+    --navbar-padding: 1.5rem;
+    --container-width: 1200px;
+    --transition-speed: 0.3s;
+    --transition-bounce: cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
 /*------ Generales --------*/
@@ -34,12 +48,31 @@
     scroll-snap-align: start
 }
 
+.text-color-red,
 .color-title-red {
     color: var(--rojo);
 }
 
+.text-color-black,
+.color-title-black {
+    color: var(--negro);
+}
+
+.text-color-white,
 .color-title-white {
     color: var(--blanco);
+}
+
+.bg-color-red {
+    background-color: var(--rojo);
+}
+
+.bg-color-white {
+    background-color: var(--blanco);
+}
+
+.bg-color-black {
+    background-color: var(--negro);
 }
 
 body {
@@ -48,56 +81,118 @@ body {
     width: 100%;
     height: 100%;
     font-family: var(--helvetica);
-    font-size: 1.8rem;
-    font-size: clamp(1.6rem, 1.2rem + 1vw, 2.2rem);
 }
 
-/*--- Navbar --*/
-.header {
+/*------ NAVBAR -------- */
+.navbar {
+    height: var(--navbar-height);
+    display: flex;
+    align-items: center;
+    background-color: var(--negro);
+    border-bottom: 2px solid var(--color-highlight-bg);
     position: sticky;
     top: 0;
-    z-index: 9;
-    height: auto;
-    background-color: var(--negro);
+    z-index: 1000;
     color: var(--blanco);
 }
 
-.header-nav {
-    width: 100%;
+.navbar__container {
     display: flex;
-    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--navbar-padding);
 }
 
-.header-logo {
-    width: 30%;
-    padding: 1rem;
+.navbar__brand {
+    color: var(--color-primary);
 }
 
 .header-logo__img {
-    width: 45%;
+    width: 50%;
+    margin: 0 auto;
 }
 
-.header-nav__list {
-    width: 70%;
+.navbar__toggle {
+    display: block;
+    border: none;
+    padding: 0.5rem;
+    background: transparent;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.navbar__toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--blanco);
+    border-radius: 3px;
+    transition: all var(--transition-speed) var(--transition-bounce);
+}
+
+.navbar__toggle.is-active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.navbar__toggle.is-active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar__toggle.is-active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.navbar__menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: var(--navbar-height);
+    left: 0;
+    background-color: var(--negro);
+    border-bottom: 2px solid var(--color-highlight-bg);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04);
+    z-index: 999;
+}
+
+.navbar__menu.is-active {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-family: var(--helvetica);
-    gap: 3rem;
 }
 
-.nav-boletos__btn {
+.navbar__item {
+    text-align: center;
+}
+
+.navbar__link {
+    font-family: var(--unity);
+    text-transform: uppercase;
+    font-size: 2rem;
+    display: block;
+    padding: 1.5rem;
+    font-weight: var(--font-weight-bold);
+    transition: background-color var(--transition-speed) ease;
+}
+
+.navbar__link:hover,
+.navbar__link:focus {
     background-color: var(--rojo);
-    padding: 1.5rem 5rem;
-    border-radius: 50px;
+    transform: scale(1.1);
 }
 
+:is(.navbar__toggle, .navbar__link):focus-visible {
+    outline: 3px solid var(--color-secondary);
+    outline-offset: 2px;
+}
 
 /*------ HERO -------- */
 .hero {
     display: grid;
     grid-template-columns: 1fr 50px 1.3fr;
-    height: 80dvh;
+    min-height: 80dvh;
 }
 
 .hero-image {
@@ -107,10 +202,18 @@ body {
 
 .img-tacos,
 .img-artist {
-    background-image: url(https://placehold.co/900x400);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+}
+
+.img-tacos {
+    background-image: url(../img/tacos.png);
+    background-position: bottom;
+}
+
+.img-artist {
+    background-image: url(../img/hero-artist.jpg);
+    background-position: top;
 }
 
 .hero-image__container {
@@ -122,7 +225,8 @@ body {
 
 .hero-pattern {
     background-image: url('../img/franja2.svg');
-    background-repeat: repeat;
+    background-repeat: repeat-y;
+    background-size: contain;
     width: 100%;
 }
 
@@ -132,52 +236,58 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: relative;
     text-align: center;
-    overflow: hidden;
-    padding-right: calc((100vw - 1200px) / 2);
 }
 
+/* Logo flexible */
 .logo-principal {
-    width: fit-content;
+    width: clamp(150px, 40%, 300px);
+    margin-bottom: 2rem;
 }
 
+/* Título responsivo */
 .titulo {
     font-family: var(--better);
-    font-size: clamp(4rem, 8vw, 13rem);
-    line-height: clamp(3.5rem, 7.5vw, 12rem);
+    font-size: clamp(8rem, 10vw, 18rem);
+    line-height: 1;
     font-weight: 400;
 }
 
 /* --- patron sección --- */
 .pattern {
     width: 100%;
-    height: 50px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--negro);
 }
 
 .pattern-img {
     display: block;
     width: 100%;
+    height: 105%;
     object-fit: cover;
-    height: 100%;
 }
 
 /* --- Selecciona tu ciudad --- */
 .ciudad {
     padding: 5rem 0;
     scroll-snap-align: start;
-    background-color: var(--negro);
-    color: var(--blanco);
+    text-align: center;
+    min-height: 60dvh;
 }
 
 .ciudad-logo {
-    width: 30%;
+    min-width: 50%;
     margin: 0 auto;
+    align-content: center;
 }
 
 .ciudad-logo__img {
     display: block;
-    width: fit-content;
+    width: clamp(200px, 25vw, 350px);
+    margin: 0 auto;
 }
 
 .ciudad-info {
@@ -187,7 +297,7 @@ body {
 
 .ciudad-info__text {
     font-family: var(--unity);
-    font-size: 3rem;
+    font-size: clamp(1.8rem, 2vw + 1rem, 4rem);
     font-weight: 700;
     text-align: center;
 }
@@ -199,8 +309,9 @@ body {
 
 .ciudad-select__title {
     font-family: var(--better);
-    font-size: 5rem;
+    font-size: clamp(2.5rem, 5vw, 5rem);
     letter-spacing: 0.3rem;
+    text-transform: uppercase;
 }
 
 .ciudad-select__btn {
@@ -208,15 +319,25 @@ body {
     margin: 3rem auto;
     align-items: center;
     justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 2rem;
 }
 
 .select-btn {
-    padding: 2rem 5rem;
+    padding: 1rem 10rem;
+    text-transform: uppercase;
     background-color: var(--negro);
     border: 1px solid var(--blanco);
+    color: var(--blanco);
     border-radius: 5rem;
     font-family: var(--better);
-    font-size: 2.5rem;
+    font-size: clamp(2.5rem, 3vw, 3.5rem);
+    letter-spacing: 0.5rem;
+}
+
+.select-btn.active {
+    background-color: var(--blanco);
+    color: var(--negro);
 }
 
 .cdmx {
@@ -224,29 +345,37 @@ body {
     color: var(--negro);
 }
 
-/* --- Artistas --- */
+/* ----------------------- Artistas ---------------------------------- */
 .artist {
-    background-color: var(--negro);
+    display: block;
+    height: auto;
     text-align: center;
-    padding: 10rem;
+    border: 1px solid transparent;
+}
+
+.artist-head {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin-top: 10rem;
 }
 
 .artist-title {
     font-family: var(--better);
-    font-size: clamp(5rem, 10vw, 20rem);
-    line-height: clamp(3.5rem, 7vw, 10rem);
+    font-size: clamp(10rem, 12vw, 25rem);
+    line-height: clamp(6rem, 7vw, 15rem);
     font-weight: 400;
 }
 
 .artist-title__down {
-    font-size: clamp(3rem, 6vw, 10rem);
+    font-size: clamp(6rem, 7vw, 15rem);
 }
 
 .artist-subtitle {
     margin: clamp(1.5rem, 3vw, 5rem) auto;
     font-family: var(--unity);
     line-height: 1;
-    font-size: clamp(1.5rem, 2.5vw, 5rem);
+    font-size: clamp(3rem, 2.5vw, 5rem);
 }
 
 /* ----- cards de artistas ------- */
@@ -255,15 +384,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .artist-card {
     background: var(--blanco);
     border-radius: 1rem;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
-    /* overflow: hidden; */
-    width: 30rem;
-    padding: 1rem 1rem 0 1rem;
+    width: clamp(18rem, 25vw, 30rem);
+    padding: clamp(0.5rem, 2vw, 1rem) clamp(0.5rem, 2vw, 1rem) 0 clamp(0.5rem, 2vw, 1rem);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -293,7 +422,7 @@ body {
 
 .card-title {
     font-family: var(--better);
-    font-size: 3rem;
+    font-size: clamp(1.8rem, 3vw, 3rem);
     font-weight: 100;
     letter-spacing: 1px;
     color: var(--negro);
@@ -301,9 +430,7 @@ body {
 
 /* --- Restaurantes --- */
 .restaurantes {
-    background-color: var(--negro);
     padding: 5rem 0;
-    color: var(--blanco);
 }
 
 .restaurantes-cont {
@@ -312,6 +439,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     gap: 1rem;
 }
 
@@ -319,19 +447,21 @@ body {
 .restaurantes-cards {
     flex: 1;
     display: grid;
-    grid-template-columns: repeat(2, 25rem);
+    grid-template-columns: repeat(2, clamp(16rem, 22vw, 25rem));
     justify-items: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .restaurante-card {
     background: var(--blanco);
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-    width: 100%;
+    width: clamp(16rem, 22vw, 25rem);
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1rem;
+    padding: clamp(0.5rem, 2vw, 1rem);
     transform: rotate(2deg);
     transition: transform 0.3s ease;
     position: relative;
@@ -362,7 +492,7 @@ body {
 
 .restaurante-card__title {
     font-family: var(--better);
-    font-size: 3rem;
+    font-size: clamp(1.8rem, 2.5vw, 3rem);
     font-weight: 100;
     text-align: center;
     line-height: 1;
@@ -372,10 +502,11 @@ body {
 
 
 .card-subtitle {
-    font-size: 2rem;
+    font-size: clamp(1.2rem, 2vw, 2rem);
 }
 
 .restaurantes-cont__column {
+    order: 1;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -385,37 +516,46 @@ body {
 }
 
 .restaurantes-info__title {
-    font-size: 8.5rem;
+    font-size: clamp(5rem, 7vw, 8.5rem);
     font-family: var(--better);
     font-weight: 300;
-    letter-spacing: 1rem;
-    line-height: 5rem;
+    letter-spacing: clamp(0.2rem, 1vw, 1rem);
+    line-height: clamp(3rem, 6vw, 5rem);
+    text-align: center;
+    word-break: keep-all;
+    white-space: normal;
+}
+
+.restaurantes-subtitle {
+    margin-top: clamp(1rem, -2vw, -3rem);
+    font-size: clamp(3rem, 4vw, 5rem);
+    font-family: var(--better);
+    letter-spacing: clamp(0.1rem, 0.5vw, 0.5rem);
+    text-align: center;
+    word-break: keep-all;
+    white-space: normal;
 }
 
 .restaurantes-info__logo {
     width: 100%;
-    margin-top: 5rem;
-    padding: 3rem 0;
+    margin-top: clamp(2rem, 5vw, 5rem);
+    padding: clamp(1rem, 4vw, 3rem) 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 
 .info-logo__img {
-    width: 50%;
+    width: clamp(200px, 25vw, 350px);
     margin: 0 auto;
-}
-
-.restaurantes-title__down {
-    font-size: 5rem;
-    letter-spacing: 0.5rem;
-}
-
-.restaurantes-info__btn {
     display: block;
-    margin: 5rem auto;
-    width: 50%;
-    background-color: var(--blanco);
-    padding: 1rem;
-    border-radius: 2rem;
-    color: var(--negro);
+}
+
+.restaurantes-info__title,
+.restaurantes-subtitle {
+    overflow-wrap: break-word;
+    word-break: keep-all;
 }
 
 /* --- Ubicación --- */
@@ -428,9 +568,14 @@ body {
 .ubicacion-title {
     font-family: var(--better);
     text-align: center;
-    font-size: 8.5rem;
+    font-size: clamp(2.5rem, 7vw, 8.5rem);
     font-weight: 100;
     text-transform: uppercase;
+    letter-spacing: 0.3rem;
+    line-height: 1.1;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    white-space: normal;
 }
 
 /* ---- MAPA --- */
@@ -448,16 +593,17 @@ body {
     width: 100%;
     height: 100%;
     border-radius: 2.0rem;
+    overflow: hidden;
 }
 
 .ubicacion-map__btn {
-    margin: 5rem auto;
-    width: 30%;
-    padding: 2rem;
+    margin: clamp(2rem, 5vw, 5rem) auto;
+    width: clamp(180px, 40vw, 30%);
+    padding: clamp(1rem, 3vw, 2rem);
     border-radius: 1.2rem;
     text-align: center;
     font-family: var(--unity);
-    font-size: 3rem;
+    font-size: clamp(1.5rem, 3vw, 3rem);
     line-height: 1;
     background-color: var(--rojo);
 }
@@ -465,187 +611,408 @@ body {
 .ubicacion-info {
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: space-between;
     font-family: var(--unity);
-    font-size: 3rem;
+    font-size: clamp(1.5rem, 3vw, 3rem);
+    flex-wrap: wrap;
 }
 
 .ubicacion-info__column {
-    width: 30%;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
 }
 
 .ubicacion-info__icons {
-    margin: 3rem 0;
-    width: 100%;
-    height: 50px;
+    margin: clamp(1rem, 3vw, 3rem) 0;
+    width: 50%;
+    height: clamp(32px, 6vw, 50px);
     display: flex;
     align-items: center;
     justify-content: space-around;
+    gap: clamp(1rem, 5vw, 4rem);
 }
 
 .waze,
 .maps {
     width: fit-content;
-    margin: 3rem 0;
+    margin: 0;
 }
 
 .icon {
     display: block;
-    width: 35%;
+    width: clamp(32px, 10vw, 50px);
+    height: auto;
     margin: 0 auto;
 }
 
 /*--- Boletos ---*/
 .boletos {
-    height: 100dvh;
+    height: 80dvh;
+    display: flex;
+    align-items: stretch;
 }
 
 .boletos-cont {
     width: 100%;
     height: 100%;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .boletos-image {
     flex: 1;
     height: 100%;
+    min-width: clamp(250px, 40vw, 700px);
     background-color: aqua;
+    display: flex;
+    align-items: stretch;
 }
 
 .bolestos-image__img {
     display: block;
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 
 .boletos-info {
     flex: 1;
     height: 100%;
+    min-width: clamp(250px, 40vw, 700px);
     background-color: var(--rojo);
-    padding-right: calc((100vw - 1200px) / 2);
+    padding-right: clamp(1rem, 5vw, calc((100vw - 1200px) / 2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .boletos-info__text {
     width: 100%;
     height: 100%;
-    padding: 10rem;
+    padding: clamp(2rem, 8vw, 10rem);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     margin: 0 auto;
-    gap: 8rem;
+    gap: clamp(2rem, 6vw, 8rem);
     color: var(--blanco);
 }
 
-.boletos-title{
+.boletos-title {
     font-family: var(--better);
-    font-size: 6rem;
+    font-size: clamp(3rem, 5vw, 6rem);
     text-align: center;
     font-weight: 100;
 }
 
-.boletia-logo{
-    display: block  ;
-    width: 70%;
+.boletia-logo {
+    display: block;
+    width: clamp(120px, 40vw, 70%);
     margin: 0 auto;
 }
 
-.boletia-logo__img{
+.boletia-logo__img {
     width: 100%;
+    height: auto;
+    display: block;
 }
 
-.boletos-btn{
+.boletos-btn {
     background-color: var(--blanco);
     font-family: var(--unity);
-    font-size: 3rem;
+    font-size: clamp(1.5rem, 2vw, 3rem);
     color: var(--rojo);
     font-weight: 700;
-    padding: 1rem 10rem;
+    padding: clamp(1rem, 2vw, 2rem) clamp(3rem, 10vw, 10rem);
     border-radius: 2rem;
+    text-align: center;
 }
 
 /* --- Próximos eventos --- */
-.proximo{
+.proximo {
     background-color: var(--rojo);
     color: var(--blanco);
     text-align: center;
     padding: 5rem 0;
 }
 
-.proximo-title{
+.proximo-title {
+    margin-bottom: 5rem;
     font-family: var(--better);
     font-weight: 100;
-    font-size: 8rem;
+    font-size: clamp(3rem, 7vw, 8rem);
+    /* 8rem máximo */
+    line-height: 1.1;
+    letter-spacing: 0.2rem;
+    text-align: center;
 }
 
-.proximo-info{
+.proximo-info {
     font-family: var(--unity);
     font-weight: 100;
-    font-size: 5rem;
+    font-size: clamp(2rem, 5vw, 5rem);
+    /* 5rem máximo */
+    line-height: 1.2;
+    text-align: center;
+    margin: clamp(2rem, 4vw, 4rem) 0;
 }
 
-.proximo-btn{
+.proximo-btn {
     display: block;
-    width: 30%;
-    margin: 3rem auto;
-    margin-bottom: 5rem;
+    width: clamp(180px, 40vw, 30%);
+    margin: clamp(2rem, 5vw, 3rem) auto clamp(2rem, 5vw, 5rem) auto;
     font-family: var(--unity);
-    font-size: 3rem;
+    font-size: clamp(1.5rem, 3vw, 3rem);
     font-weight: 100;
-    padding: 2rem 4rem;
+    padding: clamp(1rem, 3vw, 2rem) clamp(2rem, 8vw, 4rem);
     color: var(--negro);
     background-color: var(--blanco);
     border-radius: 1rem;
+    text-align: center;
 }
 
-.footer{
+/* ---- footer ---- */
+
+.footer {
     background-color: var(--negro);
     color: var(--blanco);
     text-align: center;
-    padding: 5rem 0;
-    padding-bottom: 1rem;
+    padding: clamp(2rem, 6vw, 5rem) 0 clamp(1rem, 3vw, 3rem) 0;
 }
 
-.footer-info{
+.footer-info {
     font-family: var(--unity);
-    font-size: 5rem;
+    font-size: clamp(2rem, 5vw, 5rem);
+    /* 5rem máximo */
     font-weight: 100;
+    margin-bottom: clamp(1rem, 3vw, 3rem);
 }
 
-.footer-policy{
+.footer-policy {
     font-family: var(--unity);
-    font-size: 2rem;
+    font-size: clamp(1.2rem, 2vw, 2rem);
+    /* 2rem máximo */
     font-weight: 100;
+    margin: clamp(1rem, 2vw, 2rem) 0;
 }
 
-.lineamientos{
+.footer-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(1rem, 4vw, 4rem);
+    margin-bottom: clamp(2rem, 4vw, 4rem);
+    flex-wrap: wrap;
+}
+
+.footer-icon svg {
+    width: clamp(20px, 6vw, 30px);
+    /* Ajusta el tamaño máximo según tu diseño */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.lineamientos {
     width: 100%;
-    margin: 5rem auto;
+    margin: clamp(2rem, 6vw, 5rem) auto;
     font-family: var(--unity);
-    font-size: 2rem;
+    font-size: clamp(1.2rem, 2vw, 2rem);
 }
 
 .lineamientos-list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(300px, 1fr));
-  gap: 1rem 4rem;
-  text-align: left;
-  max-width: 1100px;
-  margin: 2rem auto;
-  list-style-type: disc;
-  padding-left: 1.5rem; /* para que las viñetas no queden pegadas */
+    display: grid;
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    gap: 1rem 4rem;
+    text-align: left;
+    max-width: 1100px;
+    margin: 2rem auto;
+    list-style-type: disc;
+    padding-left: 1.5rem;
 }
 
 .lineamientos-item {
-  font-size: 2rem;
-  line-height: 1.6;
+    font-size: clamp(1.2rem, 2vw, 2rem);
+    line-height: 1.6;
+    word-break: break-word;
 }
 
-.lieamientos-list-info{
+.lieamientos-list-info {
     margin: 3rem auto;
     display: block;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.select-btn,
+.boletos-btn,
+.proximo-btn {
+    transition: all 0.3s ease-in-out;
+}
+
+.select-btn:hover,
+.boletos-btn:hover,
+.proximo-btn:hover {
+    background-color: var(--rojo);
+    color: var(--blanco);
+    border: 1px solid var(--blanco);
+}
+
+/* -------------- Bóton flotante ------------------ */
+.coke-city-selector {
+    position: fixed;
+    z-index: 10000;
+    right: 3rem;
+    bottom: 5rem;
+    display: inline-block;
+}
+
+/* Botón */
+#cokeBtn {
+    position: relative;
+    background-color: var(--rojo);
+    color: var(--blanco);
+    padding: 12px 24px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 8px rgba(228, 26, 28, 0.5);
+    font-family: var(--unity);
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+#cokeBtn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(228, 26, 28, 0.8);
+}
+
+/* Lista dropdown */
+#cokeList {
+    display: block;
+    position: absolute;
+    bottom: 6rem;
+    left: 2rem;
+    min-width: 19rem;
+    background-color: var(--blanco);
+    border: 1px solid var(--rojo);
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 13px 48px 0px;
+    opacity: 0;
+    visibility: hidden;
+    padding: 1rem;
+    border-radius: 4px;
+    transition: 300ms ease-in-out;
+    color: var(--negro);
+    font-family: var(--unity);
+    font-size: 1.5rem;
+    font-weight: 100;
+}
+
+.cokeList__item {
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid var(--rojo);
+    opacity: 0;
+    transform: translateX(2rem);
+    transition: all 100ms ease-in-out;
+    cursor: pointer;
+}
+
+.cokeList__item:nth-child(1) {
+    transition-delay: 100ms;
+}
+
+.cokeList__item:nth-child(2) {
+    transition-delay: 200ms;
+}
+
+.cokeList__item:nth-child(3) {
+    transition-delay: 300ms;
+}
+
+.cokeList__item:hover {
+    background-color: var(--rojo);
+    color: var(--blanco);
+    transition: all 300ms ease-in-out;
+}
+
+.coke-city-selector:hover .cokeList__item {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.coke-city-selector:hover .cokeList__item:nth-child(1) {
+    transition-delay: 100ms;
+}
+
+.coke-city-selector:hover .cokeList__item:nth-child(2) {
+    transition-delay: 200ms;
+}
+
+.coke-city-selector:hover .cokeList__item:nth-child(3) {
+    transition-delay: 300ms;
+}
+
+.coke-city-selector:hover #cokeList {
+    opacity: 1;
+    visibility: visible;
+    z-index: 999;
+    left: 0;
+}
+
+/* Burbujas mexicanas */
+.bubbles span {
+    position: absolute;
+    bottom: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: red;
+    animation: rise 2s infinite;
+}
+
+.bubbles span:nth-child(2) {
+    left: 30%;
+    background: green;
+    animation-delay: 0.5s;
+}
+
+.bubbles span:nth-child(3) {
+    left: 60%;
+    background: white;
+    animation-delay: 1s;
+}
+
+@keyframes rise {
+    0% {
+        transform: translateY(0) scale(0.8);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: translateY(-20px) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-40px) scale(0.8);
+        opacity: 0;
+    }
 }
