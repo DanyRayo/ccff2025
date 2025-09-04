@@ -156,6 +156,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const cityButtons = document.querySelectorAll(".select-btn");
     // Nuevos elementos del menú desplegable
     const cokeListItems = document.querySelectorAll('#cokeList .cokeList__item');
+    // Referencia al botón flotante
+    const cokeBtn = document.getElementById('cokeBtn');
 
     function updateCity(cityKey) {
         const city = cities[cityKey];
@@ -303,10 +305,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const cityKey = btn.dataset.city;
             updateCity(cityKey);
             updateRestaurantesCards(cityKey);
+
+            // ✨ NUEVA LÍNEA PARA SINCRONIZAR EL TEXTO DEL BOTÓN FLOTANTE
+            if (cokeBtn) {
+                cokeBtn.textContent = `🌵 Andamos en ${cities[cityKey].title} 📍`;
+            }
         });
     });
 
-    // ✨ Eventos en los nuevos botones del menú desplegable ✨
+    // Eventos en los nuevos botones del menú desplegable
     cokeListItems.forEach(item => {
         item.addEventListener("click", (e) => {
             e.preventDefault();
@@ -316,7 +323,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Cierra el menú desplegable después de la selección
             const cokeList = document.getElementById('cokeList');
-            const cokeBtn = document.getElementById('cokeBtn');
             if (cokeList) {
                 // Remover la clase que lo hace visible
                 const parentSelector = document.querySelector('.coke-city-selector');
@@ -324,10 +330,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     parentSelector.classList.remove('active-list'); // Asume que tienes una clase para controlar la visibilidad
                 }
             }
-            // O si lo controlas con JS, cambia el estilo directamente
-            // cokeList.style.opacity = 0;
-            // cokeList.style.visibility = 'hidden';
-
             // Actualiza el texto del botón principal
             if (cokeBtn) {
                 cokeBtn.textContent = `🌵 Andamos en ${cities[cityKey].title} 📍`;
@@ -399,4 +401,3 @@ handleScreenChange(mediaQuery);
 
 // Añade un "listener" para cuando la media query cambie
 mediaQuery.addListener(handleScreenChange);
-
