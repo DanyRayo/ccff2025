@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
             logo: "./assets/img/CDMX-LOGO.png",
             bg: "bg-color-black",
             mapa: "./assets/maps/mapa-cdmx/genially.html",
-            mapaMob: "./assets/maps/mapa-mob3/genially.html",
+            mapaMob: "./assets/maps/mapa-cdmx/genially.html", // Mismo mapa por ahora, para pruebas mobile
             imgMapa: "./assets/maps/Mapa-cdmx/mapa-cdmx.jpg",
             direccion: `Dirección: <br>
                 Estadio Fray Nano, Fernando Iglesias Calderón, Jardín Balbuena, <br>
