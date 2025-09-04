@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ubi: "ESTADIO FRAY NANO",
             logo: "./assets/img/CDMX-LOGO.png",
             bg: "bg-color-black",
-            mapa: "./assets/maps/mapa-cuadrado2/genially.html",
+            mapa: "./assets/maps/mapa-cdmx/genially.html",
             mapaMob: "./assets/maps/mapa-mob3/genially.html",
             imgMapa: "./assets/maps/Mapa-cdmx/mapa-cdmx.jpg",
             direccion: `Dirección: <br>
